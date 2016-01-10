@@ -1,4 +1,4 @@
-#
+#!/bin/bash
 # script to print information of currently logged in user, + current date, time
 #
 clear
