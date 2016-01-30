@@ -1,6 +1,19 @@
 #!/usr/bin/python3
 
-import sys
+import argparse
+#import sys
 
-print("argc:{}".format(len(sys.argv)))
-print("argv:{}".format(str(sys.argv)))
+#print("argc:{}".format(len(sys.argv)))
+#print("argv:{}".format(str(sys.argv)))
+
+parser = argparse.ArgumentParser(description='Process some ints.')
+
+parser.add_argument('integers', metavar='N', type=int, nargs='+',
+    help='an integer for the accumulator')
+
+parser.add_argument('--sum', dest='accumulate', action='store_const',
+    const=sum, default=max,
+    help='sum the integers (default: find the max)')
+
+args = parser.parse_args()
+print(args.accumulate(args.integers))
